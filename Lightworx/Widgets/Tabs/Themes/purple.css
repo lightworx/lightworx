@@ -1,0 +1,40 @@
+.lightworx-widget-tabs{
+	width:100%;
+	clear:both;
+/*	margin:0 auto;*/
+}
+.lightworx-widget-tabs .item-labels .item-label{
+	color: white;
+	background-color: #754EA1;
+	display: inline-block;
+	-webkit-border-radius: 4px 4px 0px 0px;
+	-moz-border-radius: 4px 4px 0px 0px;
+	border-radius: 4px 4px 0px 0px;
+	padding: 11px 14px 10px 14px;
+	text-shadow: 1px 1px black;
+	font-family: Arial;
+	font-weight: bold;
+	cursor: pointer;
+	background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #6A3B8D), color-stop(1, #9479AC) );
+	background-image: -moz-linear-gradient( center bottom, #6A3B8D 0%, #9479AC 100% );
+	text-decoration: none;
+	float:left;
+	margin-left:1px;
+}
+.lightworx-widget-tabs .item-cards .item-card{
+	list-style-type:none;
+	margin:0px;
+	padding:5px;
+	border-top:2px #6A3B8D solid;
+	clear:both;
+}
+
+.lightworx-widget-tabs .item-labels{margin:0;}
+.lightworx-widget-tabs .item-cards{}
+
+.lightworx-widget-tabs .item-cards .hidden{display:none;}
+.lightworx-widget-tabs .item-cards .active{display:block;}
+
+.lightworx-widget-tabs,
+.lightworx-widget-tabs .item-labels,
+.lightworx-widget-tabs .item-cards{}

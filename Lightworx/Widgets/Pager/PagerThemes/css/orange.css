@@ -1,0 +1,62 @@
+.paginator {
+    display: block;
+    height: 30px;
+    margin-top: 5px;
+}
+.paginator a, .paginator .current_page {
+	background: #fdfdfd;
+	border: 1px solid #dadad3;
+	color: #666;
+	display: block;
+	float: left;
+	margin-right: 3px;
+	padding: 5px 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-decoration: none;
+	font-size:12px;
+}
+.paginator a:hover, .paginator .current_page {
+	display: block;
+	border-color: #bb5916;
+	color: #fff;
+	text-shadow: 0 1px 0 #b75613;
+	text-decoration: none;
+	
+	/* Gradient */
+	background-color: #e56b18;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eb861e), to(#df5012));
+	/* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #eb861e, #df5012);
+	/* Chrome 10+, Saf5.1+ */
+	background-image: -moz-linear-gradient(top, #eb861e, #df5012);
+	/* FF3.6 */
+	background-image: -ms-linear-gradient(top, #eb861e, #df5012);
+	/* IE10 */
+	background-image: -o-linear-gradient(top, #eb861e, #df5012);
+	/* Opera 11.10+ */
+	background-image: linear-gradient(top, #eb861e, #df5012);
+}
+.paginator .extend {
+	display: block;
+	float: left;
+	margin-right: 3px;
+	padding: 2px 9px;
+}
+.pager_form{
+	float:left;
+}
+.pager_form input, .page_info, .pager_form .label{
+	float: left;
+	margin-right: 3px;
+	margin-top: 7px;
+	display: block;
+	height: 20px;
+	font-size: 13px;
+}
+.pager_form input{
+	margin-right: 3px;
+	margin-top: 2px;
+	text-align:center;
+}

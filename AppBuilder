@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+
+
+<?php
+
+require_once('Bootstrap.php');
+new \Lightworx\Component\AppBuilder\AppBuilder($argv);

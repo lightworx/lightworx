@@ -1,0 +1,57 @@
+.paginator{
+    display: block;
+    height: 30px;
+    margin-top: 5px;
+}
+.paginator a,.paginator .current_page {
+	background: #fdfdfd;
+	border: 1px solid #dadad3;
+	color: #666;
+	display: block;
+	float: left;
+	margin-right: 3px;
+	padding: 5px 10px;
+	text-decoration: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-size:12px;
+}
+.paginator a:hover,.paginator .current_page {
+	display: block;
+	border-color: #97c5e9;
+	color: #fff;
+	text-shadow: 0 1px 0 #347FC6;
+	text-decoration: none;
+	/* Gradient */
+	background-color: #e56b18;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#66b4f7), to(#347FC6)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #66b4f7, #347FC6); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(top, #66b4f7, #347FC6); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #66b4f7, #347FC6); /* IE10 */
+	background-image:      -o-linear-gradient(top, #66b4f7, #347FC6); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #66b4f7, #347FC6);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#66b4f7', EndColorStr='#347FC6'); /* IE6â€“IE9 */
+}
+.paginator .extend {
+	display: block;
+	float: left;
+	margin-right: 3px;
+	padding: 2px 9px;
+}
+.pager_form{
+	float:left;
+}
+.pager_form input, .page_info, .pager_form .label{
+	float: left;
+	margin-right: 3px;
+	margin-top: 7px;
+	display: block;
+	height: 20px;
+	font-size: 13px;
+}
+.pager_form input{
+	margin-right: 3px;
+	margin-top: 2px;
+	text-align:center;
+}

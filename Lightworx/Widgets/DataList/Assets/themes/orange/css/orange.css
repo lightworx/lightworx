@@ -1,0 +1,57 @@
+table.orange{
+	border: 1px solid #EBC691;
+	width: 100%;
+}
+table.orange th {
+	font-weight: normal;
+}
+table.orange thead.title th{
+	padding:5px;
+	border: 1px solid #EBC691;
+	border-bottom-color: #EAC591;
+	text-shadow: 0px 1px 0px #FEE4B0;
+	-moz-box-shadow: inset 0px 1px 0px #fef6dd;
+	-webkit-box-shadow: inset 0px 1px 0px #fef6dd;
+	box-shadow: inset 0px 1px 0px #fef6dd;
+	background-color: #FED887;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FEE8A4), to(#FFCA6A));
+	background-image: -webkit-linear-gradient(top, #FEE8A4, #FFCA6A);
+	background-image: -moz-linear-gradient(top, #FEE8A4, #FFCA6A);
+	background-image: -ms-linear-gradient(top, #FEE8A4, #FFCA6A);
+	background-image: -o-linear-gradient(top, #FEE8A4, #FFCA6A);
+	background-image: linear-gradient(top, #FEE8A4, #FFCA6A);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fee8a4', EndColorStr='#ffca6a');
+}
+table.orange tbody tr.row1{
+	background:#FEF6DD;
+}
+table.orange tbody tr.row2{
+	background:#FEE8A4;
+}
+table.orange tbody tr:hover,table.orange tbody tr.selected{
+	background:#FAFAFA;
+}
+table.orange tbody tr td{
+	padding:5px;
+	word-wrap: break-word;
+	overflow: auto;
+}
+table.orange tbody tr td.data_manage{
+	width:60px;
+}
+table.orange thead.title th a,
+table.orange tbody td a,
+table.orange thead.title th{
+	text-align: left;
+	text-decoration:none;
+	color:#666;
+	font:bold 10pt "Trebuchet MS",arial,helvetica,clean,sans-serif;
+}
+table.orange tbody td a{
+	font-weight:normal;
+}
+.row_options{
+	border: 1px solid #EBC691;
+	background:#FEF6DD;
+	padding:5px;
+}
