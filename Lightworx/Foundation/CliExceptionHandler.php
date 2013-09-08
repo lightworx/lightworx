@@ -2,9 +2,9 @@
 /**
  * This file is part of the Lightworx
  * @author Stephen Lee <stephen.lee@lightworx.io>
- * @link http://lightworx.io/
+ * @link https://lightworx.io/
  * @license All copyright and license information, please visit the web page
- *           http://lightworx.io/license
+ *           https://lightworx.io/license
  * @version $Id: ExceptionHandler.php 29 2011-10-04 05:22:03Z Stephen.Lee $
  */
 

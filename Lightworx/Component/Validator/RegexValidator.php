@@ -2,9 +2,9 @@
 /**
  * This file is part of the Lightworx
  * @author Stephen Lee <stephen.lee@lightworx.io>
- * @link http://lightworx.io/
+ * @link https://lightworx.io/
  * @license All copyright and license information, please visit the web page
- *           http://lightworx.io/license
+ *           https://lightworx.io/license
  * @version $Id: RegexValidator.php 21 2011-10-03 13:32:14Z Stephen.Lee $
  */
 
