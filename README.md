@@ -1,13 +1,13 @@
-Lightworx
-===
+####Lightworx
+
 Lightworx is an open source web framework designed to support the development web applications, web sites and web services.
 
-The Lightworx project site
-===
+####The Lightworx project site
+
 [https://lightworx.io](https://lightworx.io)
 
-License(MIT)
-===
+
+####License(MIT)
 
 Copyright (c) 2013 Stephen Lee
 
@@ -18,19 +18,18 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-Get the Lightworx
-===
+####Get the Lightworx
 
-####Download Lightworx from the official site.
+
+#####Download Lightworx from the official site.
 [https://lightworx.io](https://lightworx.io)
 
-####Get Lightworx from github
+#####Get Lightworx from github
 [https://github.com/lightworx/lightworx](https://github.com/lightworx/lightworx)
 
 
 
-Install Lightworx
-===
+####Install Lightworx
 
 Before to install the Lightworx, your system should be install the PHP, and the PHP version should be higher than 5.3.0, we recommend the version 5.5.0, and remember to install the PHP extension PDO for PHP connection to the database.
 
@@ -38,3 +37,7 @@ And you may need to install a web server for your web application, like the Apac
 
 If your application needs the database to store the application data, so the database software should be installed, like the MySQL or SQLite.
 
+
+####Lightworx documentation
+
+please visite the lightworx project page [https://lightworx.io/docs](https://lightworx.io/docs)
