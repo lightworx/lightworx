@@ -21,23 +21,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ####Get the Lightworx
 
 
-#####Download Lightworx from the official site.
+######Download Lightworx from the official site.
 [https://lightworx.io](https://lightworx.io)
 
-#####Get Lightworx from github
+######Get Lightworx from github
 [https://github.com/lightworx/lightworx](https://github.com/lightworx/lightworx)
 
 
 
-####Install Lightworx
-
-Before to install the Lightworx, your system should be install the PHP, and the PHP version should be higher than 5.3.0, we recommend the version 5.5.0, and remember to install the PHP extension PDO for PHP connection to the database.
-
-And you may need to install a web server for your web application, like the Apache or Nginx.
-
-If your application needs the database to store the application data, so the database software should be installed, like the MySQL or SQLite.
-
-
 ####Lightworx documentation
 
-please visite the lightworx project page [https://lightworx.io/docs](https://lightworx.io/docs)
+Please visit the project page [https://lightworx.io/docs](https://lightworx.io/docs)
