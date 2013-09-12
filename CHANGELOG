@@ -1,0 +1,12 @@
+Lightworx project change log
+=============================
+
+
+Version 0.7 Jan 12 2013
+-----------------------------
+- Chg: #0701 The PHPMailer and web editor CKEditor,TinyMCE has been removed from the Vendors package of the Lightworx. (Stephen)
+
+
+Version 0.1 Jan 10 2013
+-----------------------------
+Inital release

@@ -38,7 +38,7 @@ class Controller extends Object
 
 	/**
 	 * Gets a action name, if it is an avaliable action name,
-	 * that will be return the action name contained action prefix and suffix
+	 * that will be returning the action name contained action prefix and suffix, if the suffix has been defined.
 	 * @param string $name default null
 	 */
 	public function getActionName($name=null)
@@ -52,9 +52,7 @@ class Controller extends Object
 	}
 	
 	/**
-	 * Before to running that specify the action, 
-	 * the 'beforeAction' will be perform, if that method return true,
-	 * will be runing the specifying action and to perform 'afterAction'
+	 * Run the specified action of the controller.
 	 * @param String $action
 	 */
 	public function run($action)
@@ -69,10 +67,10 @@ class Controller extends Object
 	}
 
 	/**
-	 * This method is invoked before runing an action.
+	 * This method will be invoked before to access the specified action.
 	 * @param String $action
 	 * @return boolean if the before{$action} method cannot be found, 
-	 *                 that will be return true.
+	 *                 that will be returns true.
 	 */
 	protected function beforeAction($action)
 	{
@@ -86,8 +84,8 @@ class Controller extends Object
 	}
 	
 	/**
-	 * When action run finished, this method will perform.
-	 * you can override that method in your controller 
+	 * When the request finished, this method will be invoked, 
+	 * This method could be overridden in the sub controller.
 	 * @param String $action
 	 */
 	protected function afterAction($action)
@@ -129,6 +127,7 @@ class Controller extends Object
 
 	/**
 	 * Return the controller name
+	 * @return string
 	 */
 	public function getControllerName()
 	{
@@ -146,6 +145,7 @@ class Controller extends Object
 	
 	/**
 	 * Get the controller name without controller extension.
+	 * @return string
 	 */
 	public function getControllerBaseName()
 	{
@@ -169,7 +169,8 @@ class Controller extends Object
 	}
 	
 	/**
-	 * Get action name
+	 * Get the action name
+	 * @return string
 	 */
 	protected function getAction()
 	{
@@ -177,7 +178,7 @@ class Controller extends Object
 	}
 	
 	/**
-	 * Set action name
+	 * Set the action name
 	 * @param string $action
 	 */
 	public function setAction($action)
@@ -192,14 +193,14 @@ class Controller extends Object
 
 	/**
 	 * Setting the user access rules, this method must be return an array.
-	 * you can specifying the user roles and set which actions can be accessed.
+	 * you can specify the user roles and set which actions can be accessed.
 	 * @example 	
 	 * return array(
 	 *		'guest'=>array(
-	 *				'actions'=>array('index','read'),
+	 *				'allowActions'=>array('index','read'),
 	 *		),
 	 *		'member'=>array(
-	 *				'actions'=>array('*')
+	 *				'allowActions'=>array('*')
 	 *		),
 	 *	);
 	 * @return array
@@ -210,7 +211,7 @@ class Controller extends Object
 	}
 
 	/**
-	 * Using the renderer to display view
+	 * Creates an instance of the renderer, and rendering a view.
 	 * @param mixed $name
 	 * @param mixed $data
 	 * @param boolean $return
@@ -265,9 +266,10 @@ class Controller extends Object
 	}
 
 	/**
-	 * run action of controller, if action does't exists
-	 * will to notifty a message to response, response send header information http code status 404
-	 * if accessable property of action is private or protected, response will send http code status 403
+	 * Run action of controller, if the specified action doesn't exists,
+	 * that will be return an error message page, and send the http status as 404
+	 * If the action is private or protected, That will be sent an http status 403 to client.
+	 * @param string $action
 	 */
 	private function runAction($action)
 	{
@@ -294,7 +296,7 @@ class Controller extends Object
 	}
 
 	/**
-	 * Throw an HttpException, when cannot found the action
+	 * Throw an HttpException, when the action cannot be found
 	 * @param String $action
 	 * @throws HttpException
 	 */
@@ -325,7 +327,7 @@ class Controller extends Object
 	/**
 	 * Redirect to a specified URL
 	 * @param string $url
-	 * @param boolean $terminate defaults to 'true', means stop to loading the remaining contents.
+	 * @param boolean $terminate defaults to 'true', means stops to load the remaining contents.
 	 * @param integer $statusCode HTTP status code, defaults to '302'
 	 */
 	public static function redirect($url,$terminate=true,$statusCode=302)

@@ -24,12 +24,10 @@ class Object
 	
 	public $components = array();
 	public $lightworxMessagePath;
-	// public function dumpc()
-	// {
-	// 	print_r($this->_components);
-	// }
+	
 	/**
-	 * get property of this class, php magic method
+	 * Get the specified property.
+	 * If the method `get{property}` exists, then that will be invoked first.
 	 * @param $name string
 	 * @return property mixed
 	 */
@@ -49,7 +47,7 @@ class Object
 	}
 	
 	/**
-	 * set value for property of this class, php magic method
+	 * Set a value for property of the class.
 	 * @param $name string
 	 * @param $value mixed
 	 * @return 
@@ -69,10 +67,10 @@ class Object
 	}
 	
 	/**
-	 * php magic method, get some a component or a widget
+	 * The PHP magic method, gets a specified component.
 	 * @param string $method
 	 * @param mixed $args
-	 * @return 
+	 * @return mixed
 	 */
 	public function __call($method,$args)
 	{
@@ -112,7 +110,7 @@ class Object
 	}
 	
 	/**
-	 * Executing the event method
+	 * Executs an event method
 	 * @param string $method
 	 * @param mixed $args
 	 * @param array $events
@@ -139,7 +137,7 @@ class Object
 	}
 	
 	/**
-	 * Execute the specified method before wish to execute the events
+	 * Execute the specified method when the event triggers.
 	 * @param array $events
 	 */
 	public function executeBeforeEvents(array $events)
@@ -159,7 +157,7 @@ class Object
 	}
 	
 	/**
-	 * Execute the specified method after need to execute the events
+	 * Execute the specified method, when the event triggered.
 	 * @param array $events
 	 */
 	public function executeAfterEvents(array $events)
@@ -212,8 +210,9 @@ class Object
 	// }
 	
 	/**
-	 * Get all notification of the specify object
+	 * Get all notification from specify object.
 	 * @param mixed $obj
+	 * @return array
 	 */
 	public function getNotify($obj)
 	{
@@ -235,11 +234,11 @@ class Object
 	}
 	
 	/**
-	 *  get component and instance component
-	 *  return instance when new a component successfully
-	 *  @param $name string
-	 *  @exception throw an exception if cannot find the parameters of component
-	 *  @return mixed
+	 * Gets a component and instance the specified component,
+	 * return instance when the the component created.
+	 * @param $name string
+	 * @exception throw an runtime exception if cannot be found the parameters of the component
+	 * @return mixed
 	 */
 	public function getComponent($name)
 	{
@@ -265,11 +264,11 @@ class Object
 			return $component;
 		}
 		
-		throw new \RuntimeException("Cannot find the component parameters");
+		throw new \RuntimeException("Cannot be found the component parameters");
 	}
 
 	/**
-	 * set a component to current object
+	 * Set a component to the current object
 	 */
 	public function setComponent($object)
 	{
@@ -280,8 +279,10 @@ class Object
 	}
 	
 	/**
-	 * Appending a error key of the messages array
+	 * Appending an error  message to the `$_errors` array
 	 * @param string $text that should be a key of the messages array
+	 * @param array $placeholders About the error related parameters
+	 * @param string $key The rank of the error messages.
 	 */
 	public function addError($template,array $placeholders=array(),$key='')
 	{
@@ -295,8 +296,8 @@ class Object
 	}
 	
 	/**
-	 * Get all errors of current object
-	 * @return mixed if current object have no errors, that will be return null
+	 * Get all errors from the current object.
+	 * @return mixed If current object has no errors, that will be return null.
 	 */
 	public function getErrors($obj=null)
 	{
@@ -312,7 +313,8 @@ class Object
 	}
 	
 	/**
-	 * Clear all errors of current object.
+	 * Clear all errors of the current object.
+	 * @param object $obj Defaults to `null`
 	 * @return true
 	 */
 	protected function clearErrors($obj=null)
@@ -329,7 +331,9 @@ class Object
 	}
 	
 	/**
-	 * Get the object Translator, that will be supplied with an i18n environment
+	 * Get the object Translator, that will be supplied with an i18n environment.
+	 * @param object $obj
+	 * @return \Lightworx\Component\Translation\Translator
 	 */
 	public function getTranslator($obj='')
 	{
@@ -341,6 +345,13 @@ class Object
 		return $translator;
 	}
 	
+	/**
+	 * Get the translation message, if the translation message cannot be found,
+	 * that will be return the original message.
+	 * @param string $string The original message template.
+	 * @param array $placeholders The original message related arguments.
+	 * @return string
+	 */ 
 	public function __($string,array $placeholders=array())
 	{
 		return $this->getTranslator($this)->__($string,$placeholders);
