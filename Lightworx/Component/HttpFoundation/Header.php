@@ -56,19 +56,6 @@ class Header implements \ArrayAccess
 							"504"=>"504 Gateway Timeout",
 							"505"=>"505 HTTP Version Not Supported"
 						);
-						
-	public static $instance;
-	
-	public static function getInstance()
-	{
-		if(self::$instance===null)
-		{
-			self::$instance = new Header;
-		}
-		return self::$instance;
-	}
-
-	private function __construct(){}
 	
 	public function getAll()
 	{

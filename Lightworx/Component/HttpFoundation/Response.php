@@ -22,6 +22,12 @@ class Response extends Object
 	 * @var object
 	 */
 	public $header;
+
+	/**
+	 * The response header options.
+	 * @var array
+	 */
+	public $headers = array();
 	
 	/**
 	 * Setting whether compressing contents.
@@ -31,7 +37,7 @@ class Response extends Object
 
 	public function __construct()
 	{
-		$this->setHeader(Header::getInstance());
+		$this->setHeader(new Header);
 	}
 	
 	/**
@@ -77,8 +83,10 @@ class Response extends Object
 		{
 			return false;
 		}
+
+		$headers = array_merge($this->header->getAll(),$this->headers);
 		
-		foreach($this->header->getAll() as $key=>$value)
+		foreach($headers as $key=>$value)
 		{
 			header($key.':'.$value);
 		}

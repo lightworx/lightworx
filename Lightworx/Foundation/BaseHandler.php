@@ -34,7 +34,7 @@ class BaseHandler extends Object
 	 */
 	public function initialize()
 	{
-		$this->setHeader(Header::getInstance());
+		$this->setHeader(new Header);
 		$this->setViewPath(LIGHTWORX_PATH.'Resource/Views/');
 	}
 	

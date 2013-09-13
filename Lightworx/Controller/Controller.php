@@ -217,7 +217,7 @@ class Controller extends Object
 	 * @param boolean $return
 	 * @throws \RuntimeException
 	 */
-	public function render($name,$data=null,$return=false)
+	public function render($name,$data=null,$return=true)
 	{
 		if(!$this->getRenderer() or !($this->renderer instanceof Renderer))
 		{
