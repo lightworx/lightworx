@@ -32,7 +32,7 @@ class ServiceController extends Controller
 	 * if the submit data hash same with the PRS value, that will be blocked this submit.
 	 * @var string
 	 */
-	public $PRSName = 'LW.PRS';
+	public $PRSName = 'LW_PRS';
 	protected $enableValidatePRS = true;	
 	
 	protected $csrfTokenRequired = true;
@@ -256,13 +256,8 @@ class ServiceController extends Controller
 	public function getPRSCookie()
 	{
 		$sessionStorage = new CookieStorage;
-		$properties = array(
-				'name'=>$this->PRSName,
-				'expire'=>0,
-				'path'=>'/'
-		);
-		$sessionStorage->setProperties($properties);
-		return $sessionStorage->getData($this->PRSName);
+		$sessionStorage->name = $this->PRSName;
+		return $sessionStorage->getData();
 	}
 	
 	/**
