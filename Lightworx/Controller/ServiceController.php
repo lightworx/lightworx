@@ -15,6 +15,7 @@ use Lightworx\Exception\HttpException;
 use Lightworx\HttpFoundation\Request;
 use Lightworx\Component\Encryption\CryptString;
 use Lightworx\Component\Encryption\XorEncrypt;
+use Lightworx\Component\Storage\CookieStorage;
 
 class ServiceController extends Controller
 {	
@@ -23,6 +24,16 @@ class ServiceController extends Controller
 	public $responseFormat;
 	public $httpData = array();
 	public $modelAttributes = array();
+
+	/**
+	 * The PRSName for prevent repeat submit,
+	 * that defines a cookie name, and sends a cookie of hash of the submit data.
+	 * when the next submit, that will be validate the data hash,
+	 * if the submit data hash same with the PRS value, that will be blocked this submit.
+	 * @var string
+	 */
+	public $PRSName = 'PRS';
+	protected $enableValidatePRS = true;
 	
 	
 	protected $csrfTokenRequired = true;
@@ -159,6 +170,8 @@ class ServiceController extends Controller
 		{
 			$this->modelAttributes = \Lightworx::getApplication()->user->decryptData($this->httpData[$requestName]);
 		}
+
+		$this->validateRepeatSubmit(get_class($model));
 		return true;
 	}
 	
@@ -209,5 +222,65 @@ class ServiceController extends Controller
 			return new $name();
 		}
 		return $this->_model;
+	}
+
+	/**
+	 * Validate the submit whether is a repeat submit or not.
+	 * @param string $modelName
+	 */ 
+	public function validateRepeatSubmit($modelName)
+	{
+		if($this->enableValidatePRS===true and isset($this->httpData[$modelName]))
+		{
+			$PRSHash = $this->hashSubmitData($this->httpData[$modelName]);
+			// validate PRSHash
+			if($PRSHash==$this->getPRSCookie())
+			{
+				$message = array($this->__('Can\'t repeat submit.'));
+				throw new \Lightworx\Exception\HttpException(500,json_encode($message));
+			}
+			// send a temp cookie for prevent repeat submit.
+			$this->sendDataToken($PRSHash);
+		}
+	}
+
+	/**
+	 * Hash the submit data with md5 function, prevent repeat submit.
+	 * @param array $data The submit data.
+	 * @return string
+	 */ 
+	protected function hashSubmitData(array $data)
+	{
+		ksort($data);
+		return md5(http_build_query($data));
+	}
+
+	public function getPRSCookie()
+	{
+		$sessionStorage = new CookieStorage;
+		$properties = array(
+				'name'=>$this->PRSName,
+				'expire'=>0,
+				'path'=>'/'
+		);
+		$sessionStorage->setProperties($properties);
+		return $sessionStorage->getData($this->PRSName);
+	}
+	
+	/**
+	 * Sends a temporary cookie for prevent repeat submit.
+	 * @param string $cookie
+	 */
+	public function sendDataToken($cookie)
+	{
+		$sessionStorage = new CookieStorage;
+		$properties = array(
+				'name'=>$this->PRSName,
+				'value'=>$cookie,
+				'expire'=>0,
+				'path'=>'/'
+		);
+		$sessionStorage->setProperties($properties);
+		$sessionStorage->save();
 	}
 }
