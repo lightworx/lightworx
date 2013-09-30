@@ -32,7 +32,7 @@ class ServiceController extends Controller
 	 * if the submit data hash same with the PRS value, that will be blocked this submit.
 	 * @var string
 	 */
-	public $PRSName = 'PRS';
+	public $PRSName = 'LW.PRS';
 	protected $enableValidatePRS = true;	
 	
 	protected $csrfTokenRequired = true;
@@ -91,7 +91,6 @@ class ServiceController extends Controller
 		}
 		
 		$method = 'process'.ucfirst($this->requestMethod);
-
 
 		$result = false;
 		if(method_exists($this,$method))
@@ -235,7 +234,7 @@ class ServiceController extends Controller
 			// validate PRSHash
 			if($PRSHash==$this->getPRSCookie())
 			{
-				$message = array($this->__('Can\'t repeat submit.'));
+				$message = array($this->__('Do not repeat submission data.'));
 				throw new \Lightworx\Exception\HttpException(500,json_encode($message));
 			}
 			// send a temp cookie for prevent repeat submit.
