@@ -261,11 +261,11 @@ class FormBuilder extends Widget
 	{
 		if($this->model instanceof Model)
 		{
-			$defaultAttribute = array(
+			$modelOptions = array(
 				'id' => $this->getInputId($attribute),
 				'value' => $this->model->$attribute,
 			);
-			$options = array_merge($defaultAttribute,$options);
+			$options = array_merge($modelOptions,$options);
 		}
 		return '<input type="'.$type.'" name="'.$this->getFormItemName($attribute,$multiple).'"'.$this->getHtmlOptions($options).' />';
 	}

@@ -2,9 +2,9 @@
 /**
  * This file is part of the Lightworx
  * @author Stephen Lee <stephen.lee@lightworx.io>
- * @link https://lightworx.io/
+ * @link http://lightworx.io/
  * @license All copyright and license information, please visit the web page
- *           https://lightworx.io/license
+ *           http://lightworx.io/license
  * @version $Id$
  */
 
@@ -69,15 +69,15 @@ class AssetManager
 	 * Publish the asset file.
 	 * @return string
 	 */
-	public static function publishAssetFile(array $domains=array())
+	public static function publishAssetFiles(array $domains=array())
 	{
-		return self::publishCssFile($domains)."\n".self::publishScriptFile($domains);
+		return self::publishCssFiles($domains)."\n".self::publishScriptFiles($domains);
 	}
 
 	/**
 	 * Publish the Css files to client.
 	 */ 
-	static public function publishCssFile(array $domains=array())
+	static public function publishCssFiles(array $domains=array())
 	{
 		self::publishResourcePackage();
 		self::publishResourceFile();
@@ -107,7 +107,7 @@ class AssetManager
 	/**
 	 * Publish the Script files to client.
 	 */ 
-	static public function publishScriptFile(array $domains=array())
+	static public function publishScriptFiles(array $domains=array())
 	{
 		self::publishResourcePackage();
 		self::publishResourceFile();

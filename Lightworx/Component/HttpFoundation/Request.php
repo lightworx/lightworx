@@ -83,6 +83,7 @@ class Request
 		$this->method   = $this->getRequestMethod();
 		$this->xmlHttpRequest = $this->headers->get('X_REQUESTED_WITH') == 'XMLHttpRequest';
 		
+		parse_str(file_get_contents('php://input'), $GLOBALS['httpData']);
 	}
 	
 	public function __call($method,$value)

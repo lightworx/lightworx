@@ -49,7 +49,7 @@ class ServiceController extends Controller
 	
 	public function __call($method,$value)
 	{
-		$result = $insert = false;
+		$insert = false;
 		if($this->requestMethod=='post')
 		{
 			$insert = true;
@@ -59,7 +59,12 @@ class ServiceController extends Controller
 		{
 			return;
 		}
+		return $this->processResult($method,$insert);
+	}
 
+	public function processResult($method,$insert)
+	{
+		$result = false;
 		$modelName = substr($method,6);
 		$model = $this->loadModel($modelName,$insert);
 		$beforeProcess = $this->beforeProcess($model);
@@ -69,7 +74,6 @@ class ServiceController extends Controller
 			$result = $this->process($model);
 		}
 		$this->afterProcess($result);
-
 		return $result;
 	}
 	
@@ -153,7 +157,7 @@ class ServiceController extends Controller
 	public function beforeProcess($model)
 	{
 		$requestMethod = strtoupper($this->requestMethod);
-		parse_str(file_get_contents('php://input'), $this->httpData);
+		$this->httpData = $GLOBALS['httpData'];
 
 		if(in_array($requestMethod,array('post','put')) and $this->httpData===array())
 		{
@@ -161,7 +165,6 @@ class ServiceController extends Controller
 			throw new \Lightworx\Exception\HttpException(500,json_encode($message));
 		}
 		
-		// $this->httpData = \Lightworx::getApplication()->request->stripSlashes($this->httpData); // strip slashes
 		$requestName = isset($this->params['requestName']) ? $this->params['requestName'] : '';
 		
 		if(isset($this->httpData[$requestName]))
@@ -204,7 +207,11 @@ class ServiceController extends Controller
 			if(isset($_GET[$pk]) and !empty($_GET[$pk]))
 			{
 				$this->_model=$name::model()->findByPk(array($pk=>$_GET[$pk]));
-				$this->_model->setIsNewRecord(false);
+
+				if($this->_model!==null)
+				{
+					$this->_model->setIsNewRecord(false);
+				}
 				
 				if($this->_model===null)
 				{
