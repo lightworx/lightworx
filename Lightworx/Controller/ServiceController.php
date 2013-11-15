@@ -33,7 +33,7 @@ class ServiceController extends Controller
 	 * @var string
 	 */
 	public $PRSName = 'LW_PRS';
-	protected $enableValidatePRS = true;	
+	protected $enableValidatePRS = true;
 	
 	protected $csrfTokenRequired = true;
 	protected $_model;

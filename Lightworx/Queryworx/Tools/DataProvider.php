@@ -22,6 +22,11 @@ class DataProvider extends CommandBuilder
 	public $criteriaParams=array('fields'=>'*');
 	public $values = array();
 	public $enableDefaultScope = true;
+
+	/**
+	 * The data row number.
+	 */ 
+	public $count;
 	
 	public function __construct(Model $model,array $params=array())
 	{
@@ -76,6 +81,7 @@ class DataProvider extends CommandBuilder
 	 */
 	public function getPageCount($condition='',array $params=array())
 	{
-		return ceil((int)$this->model->count($condition,$params)/(int)$this->pageSize);
+		$this->count = $this->model->count($condition,$params);
+		return ceil((int)$this->count/(int)$this->pageSize);
 	}
 }

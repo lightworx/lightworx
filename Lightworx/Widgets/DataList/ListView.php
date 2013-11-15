@@ -22,6 +22,7 @@ class ListView extends BaseListView
 	public $wrapId;
 	public $template = "{filters}\n{items}\n{pager}\n{others}";
 	public $listViewStyleClass = 'clearfix';
+	public $count;
 
 	public $dataProviderParams = array();
 	public $withoutBaseCondition = false;
@@ -264,5 +265,15 @@ class ListView extends BaseListView
 	public function renderFilters()
 	{
 		return implode("\n",$this->createDataFilters());
+	}
+
+	public function renderCount()
+	{
+		$count = 0;
+		if($this->dataProvider!==null)
+		{
+			$count = $this->dataProvider->count;
+		}
+		return $count;
 	}
 }
