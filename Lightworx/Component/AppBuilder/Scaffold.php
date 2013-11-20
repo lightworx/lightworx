@@ -17,6 +17,8 @@ class Scaffold
 {
 	public $name;
 	public $appPath;
+	public $tableName;
+
 	public $placeholders = array(
 		'{actionPrefix}'=>'action',
 		'{UCF_createAction}'=>'Create',
@@ -44,10 +46,11 @@ class Scaffold
 	);
 	static protected $models = array();
 
-	public function __construct($name,$appPath=null)
+	public function __construct($name,$appPath=null,$tableName=null)
 	{
 		$this->name = ucfirst($name);
 		$this->appPath = $appPath;
+		$this->tableName = $tableName;
 		
 		$this->createScaffold();
 	}
@@ -136,6 +139,10 @@ class Scaffold
 
 	protected function getTableName()
 	{
+		if($this->tableName!==null)
+		{
+			return $this->tableName;
+		}
 		include_once(LIGHTWORX_PATH.'Vendors/String/Inflector.php');
 		return lcfirst(\Inflector::pluralize($this->name));
 	}

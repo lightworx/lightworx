@@ -182,9 +182,13 @@ class AppBuilder
 	 * @param string $path Defaults to a '.' Dot, that means generation to the current directory, 
 	 *                     in commonly should be a root of the application directory or a module directory.
 	 */
-	public function createScaffold($name,$path='.')
+	public function createScaffold($name,$path='.',$tableName='')
 	{
-		new Scaffold($name,$path);
+		if($tableName=='')
+		{
+			$tableName = $name;
+		}
+		new Scaffold($name,$path,$tableName);
 	}
 
 	/**
