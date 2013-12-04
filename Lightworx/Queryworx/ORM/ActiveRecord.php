@@ -834,15 +834,15 @@ class ActiveRecord extends TableModel
 			$md=$record->getMetaData();
 			foreach($attributes as $name=>$value)
 			{
-				// $record->$name=$value; // assignment for attributes of the sub query
-				if(property_exists($record,$name))
-				{
-					$record->{$name} = $value;
-				}
-				if(isset($md->columns[$name]))
-				{
-					$record->_attributes[$name] = $value;
-				}
+				$record->$name=$value; // assignment for attributes of the sub query
+				// if(property_exists($record,$name))
+				// {
+				// 	$record->{$name} = $value;
+				// }
+				// if(isset($md->columns[$name]))
+				// {
+				// 	$record->_attributes[$name] = $value;
+				// }
 			}
 			
 			$record->pk=$record->getPrimaryKey();

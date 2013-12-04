@@ -22,6 +22,7 @@ abstract class DataFilter extends Widget
 	public $template;
 	public $filterStyleClass;
 	public $attributeLabelStyleClass = 'dataFilter';
+	public $displayAttributeLabel = true;
 	
 	public static $filterRequestName = 'filter';
 	public static $filterValue;
