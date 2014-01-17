@@ -265,7 +265,7 @@ class FormBuilder extends Widget
 				'id' => $this->getInputId($attribute),
 				'value' => $this->model->$attribute,
 			);
-			$options = array_merge($modelOptions,$options);
+			$options = array_merge($options,$modelOptions);
 		}
 		return '<input type="'.$type.'" name="'.$this->getFormItemName($attribute,$multiple).'"'.$this->getHtmlOptions($options).' />';
 	}
@@ -564,7 +564,7 @@ class FormBuilder extends Widget
 				'id' => $this->getInputId($attribute),
 				'value' => $this->model->$attribute,
 			);
-			$options = array_merge($defaultAttribute,$options);
+			$options = array_merge($options,$defaultAttribute);
 		}
 		return Html::tag('button',isset($options['value']) ? $options['value'] : $attribute,$options);
 	}
